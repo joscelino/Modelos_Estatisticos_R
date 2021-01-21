@@ -11,7 +11,8 @@ tail(corporate.payment)
 summary(corporate.payment)
 
 # Cria objeto da Lei de Benford
-teste = benford(corporate.payment$Amount, 2, sign = "positive", discrete = F, round = 2)
+teste <- benford(corporate.payment$Amount, 2, sign = "positive", 
+                discrete = FALSE, round = 2)
 
 # Estatisticas dos dados analisados
 edit(teste$bfd)
@@ -26,16 +27,16 @@ suspectsTable(teste)
 duplicatesTable(teste)
 
 # Graficos
-plot(teste, multiple = F)
+plot(teste, multiple = FALSE)
 
 # Teste Kolmogorov-Smirnoff (KN) - BenfordTests
 ks.benftest(corporate.payment$Amount, digits = 2)
 
 # Analise Visual
-signifd.analysis(corporate.payment$Amount, digits = 1, freq = T, ci_lines = c(0.05))
+signifd.analysis(corporate.payment$Amount, digits = 1, freq = TRUE, 
+                 ci_lines = c(0.05))
 
 # Gerando dados comparativos 
-benf = rbenf(10000)
-signifd.analysis(benf, digits = 1, freq = T, ci_lines = c(0.05))
-
+benf <- rbenf(10000)
+signifd.analysis(benf, digits = 1, freq = TRUE, ci_lines = c(0.05))
 
