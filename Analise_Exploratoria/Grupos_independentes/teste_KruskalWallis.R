@@ -30,9 +30,14 @@ dados %>% group_by(Grupo) %>%
   get_summary_stats(BC, Pressao, type = "median_iqr")
 
 # Visualizacao dos dados
-par(mfrow=c(1,2))
+par(mfrow = c(1,2))
 boxplot(BC ~ Grupo, data = dados)
 boxplot(Pressao ~ Grupo, data = dados)
+
+boxPlot <- plotly::plot_ly(data = dados, y = ~Triglicerides, x =  ~Grupo,
+                           type = "box", quartilemethod = "linear",
+                           jitter = 0.3, color = ~Grupo)
+boxPlot
 
 # Identificando outliers
 dados %>% group_by(Grupo) %>% identify_outliers(BC)
