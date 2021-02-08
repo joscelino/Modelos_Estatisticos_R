@@ -20,7 +20,10 @@ pastecs::stat.desc(dados$comp) # Analise geral
 by(dados[,"comp"],dados$metodo,stat.desc) # Analise por grupos
 by(dados[,"comp"],dados$metodo,summary) # Analise por grupos COM QUARTIS
 
-plot(comp ~ metodo,data = dados) # Plotando o BoxPlot
+boxPlot <- plotly::plot_ly(data = dados, y = ~comp, x =  ~metodo,
+                           type = "box", quartilemethod = "linear",
+                           jitter = 0.3, color = ~metodo)
+boxPlot
 
 " Verificando a suposicao de normalidade atraves de graficos "
 # Separando os dados em grupos
