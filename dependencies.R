@@ -19,3 +19,4 @@ checkpoint(snapshotDate = "2021-01-21")
 
 library(lpSolve)
 library(GA)
+library(effectsize)
