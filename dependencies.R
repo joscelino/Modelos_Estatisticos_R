@@ -15,8 +15,10 @@ if (length(new.packages)) {
 rm(new.packages)
 
 library(checkpoint)
-checkpoint(snapshotDate = "2021-01-21")
+checkpoint(snapshotDate = "2021-05-13")
 
 library(lpSolve)
 library(GA)
 library(effectsize)
+library(rel)
+library(irr)
